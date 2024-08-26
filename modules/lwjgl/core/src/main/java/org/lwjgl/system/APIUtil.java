@@ -10,6 +10,7 @@ import org.lwjgl.system.libffi.*;
 import org.lwjgl.system.linux.*;
 import org.lwjgl.system.macosx.*;
 import org.lwjgl.system.windows.*;
+import org.lwjgl.system.boat.*;
 
 import javax.annotation.*;
 import java.io.*;
@@ -122,6 +123,8 @@ public final class APIUtil {
 
     public static SharedLibrary apiCreateLibrary(String name) {
         switch (Platform.get()) {
+            case BOAT:
+                return new BoatLibrary(name);
             case FREEBSD:
                 return new FreeBSDLibrary(name);
             case LINUX:

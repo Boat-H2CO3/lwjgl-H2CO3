@@ -137,7 +137,12 @@ This script is included in /build.xml and /config/update-dependencies.xml.
         <os name="FreeBSD"/>
     </condition>
     <condition property="platform.linux">
-        <os name="Linux"/>
+        <and>
+            <os name="Linux"/>
+            <not>
+                <isset property="platform.boat" />
+            </not>
+        </and>
     </condition>
     <condition property="platform.macos">
         <os name="Mac OS X"/>
@@ -148,6 +153,7 @@ This script is included in /build.xml and /config/update-dependencies.xml.
 
     <property name="platform" value="freebsd" if:set="platform.freebsd"/>
     <property name="platform" value="linux" if:set="platform.linux"/>
+    <property name="platform" value="boat" if:set="platform.boat"/>
     <property name="platform" value="macos" if:set="platform.macos"/>
     <property name="platform" value="windows" if:set="platform.windows"/>
     <fail message="Failed to detect a supported platform."><condition><not><isset property="platform"/></not></condition></fail>

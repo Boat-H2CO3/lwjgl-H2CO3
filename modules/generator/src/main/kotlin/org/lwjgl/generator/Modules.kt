@@ -38,6 +38,11 @@ enum class Module(
         "org.lwjgl.system.linux",
         "Contains bindings to native APIs specific to the Linux operating system."
     ),
+    CORE_BOAT(
+        "core.boat",
+        "org.lwjgl.system.boat",
+        "Contains bindings to native APIs specific to the Boat platform."
+    ),
     CORE_FREEBSD(
         "core.freebsd",
         "org.lwjgl.system.freebsd",
@@ -166,7 +171,7 @@ enum class Module(
         GLFW comes with extensive documentation, which you can read online ${url("https://www.glfw.org/docs/latest/", "here")}. The
         ${url("https://www.glfw.org/faq.html", "Frequently Asked Questions")} are also useful.
 
-        <h3>Using GLFW on macOS</h3> 
+        <h3>Using GLFW on macOS</h3>
 
         On macOS the JVM must be started with the {@code -XstartOnFirstThread} argument for GLFW to work. This is necessary because most GLFW functions must be
         called on the main thread and the Cocoa API requires that thread to be the first thread in the process. GLFW windows and the GLFW event loop are
